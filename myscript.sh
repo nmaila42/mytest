@@ -8,11 +8,11 @@ gnome-terminal\
 	mysql -u test '-pdevP@55';
        	$SHELL"\
 
-phpstorm.sh &
-
 gnome-terminal\
     --tab\
         --title="Test project" -- bash -c "cd ~/projects/matcha;
-        php artisan serve;
+        php artisan serve; php artisan storage:link;
         $SHELL"\
+
+phpstorm.sh &
 

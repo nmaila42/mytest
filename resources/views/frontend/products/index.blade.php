@@ -9,9 +9,9 @@
             @can('product_create')
                 <div style="margin-bottom: 10px;" class="row">
                     <div class="col-lg-12">
-                        <a class="btn btn-success" href="{{ route('frontend.products.create') }}">
+                      <!--  <a class="btn btn-success" href="{{ route('frontend.products.create') }}">
                             {{ trans('global.add') }} {{ trans('cruds.product.title_singular') }}
-                        </a>
+                        </a> -->
                     </div>
                 </div>
             @endcan
@@ -55,11 +55,8 @@
 
                             <p>all products displayed</p>
 
-                            <tbody>
-
                                 @foreach($products as $key => $product)
                                     <tr data-entry-id="{{ $product->id }}">
-
                                         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
                                             <div class="col mb-5">
@@ -91,9 +88,7 @@
                                                 </div>
                                             </div>
 
-
-
-                                        <td>
+                                            <td>
                                             {{ $product->id ?? '' }}
                                         </td>
                                         <td>
@@ -129,22 +124,8 @@
                                                 </a>
                                             @endcan
 
-                                            @can('product_edit')
-                                                <a class="btn btn-xs btn-info" href="{{ route('frontend.products.edit', $product->id) }}">
-                                                    {{ trans('global.edit') }}
-                                                </a>
-                                            @endcan
-
-                                            @can('product_delete')
-                                                <form action="{{ route('frontend.products.destroy', $product->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
-                                                    <input type="hidden" name="_method" value="DELETE">
-                                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                    <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
-                                                </form>
-                                            @endcan
-
                                         </td>
-
+                                        </div>>
                                     </tr>
                                 @endforeach
                             </tbody>
